@@ -1,10 +1,15 @@
 import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
 
 function App() {
   return (
     <>
-      <h1> Delish-Licks</h1>
+      <Navbar/>
+      <Hero/>
+      <About/>
     </>
   );
 }
