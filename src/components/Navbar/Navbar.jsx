@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import {
   Drawer,
   List,
@@ -16,35 +17,41 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import logoimage from "../../assets/Navbar/delishlogo.png";
- 
+
 const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = useState(false);
- 
-  const toggleDrawer = (open) => (event) => {
-    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
-      return;
+  const location = useLocation();
+
+  const toggleDrawer = (state) => () => setOpen(state);
+
+  const menuItems = [
+    { label: "Home", path: "/Home" },
+    { label: "Menu", path: "/Menu" },
+    { label: "Kids Zone", path: "/Kids-Zone" },
+    { label: "Play Zone", path: "/Play-Zone" },
+    { label: "Careers", path: "/Careers" },
+    { label: "Contact", path: "/Contact" },
+  ];
+
+  // FIX: Scroll to top when clicking "Home" even if already on /hero
+  useEffect(() => {
+    if (location.pathname === "/Home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    setOpen(open);
-  };
- 
-  const menuItems = ["Home", "Menu", "Kids Zone", "Play Zone", "Careers", "Contact"];
- 
+  }, [location]);
+
   // Animation variants for list items
   const listItemVariants = {
-    hidden: { opacity: 0, x: -20 }, // Starts slightly to the left and invisible
+    hidden: { opacity: 0, x: -20 },
     visible: (i) => ({
       opacity: 1,
       x: 0,
-      transition: {
-        delay: i * 0.1, // Staggered effect
-        duration: 0.4,
-        ease: "easeOut",
-      },
+      transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" },
     }),
   };
- 
+
   const drawerContent = (
     <Box
       sx={{
@@ -71,23 +78,32 @@ const Navbar = () => {
           }}
         />
       </Box>
- 
+
       {/* Navigation Links with Animation */}
       <List>
-        {menuItems.map((text, index) => (
+        {menuItems.map((item, index) => (
           <motion.div
-            key={index}
+            key={item.path}
             variants={listItemVariants}
             initial="hidden"
             animate="visible"
-            custom={index} // Pass index for stagger effect
+            custom={index}
           >
             <ListItem disablePadding>
-              <ListItemButton sx={{ padding: "10px 65px" }}>
+              <ListItemButton
+                sx={{ padding: "10px 65px" }}
+                component={Link}
+                to={item.path}
+                onClick={() => {
+                  if (item.path === "/hero" && location.pathname === "/hero") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+              >
                 <ListItemText
-                  primary={text}
+                  primary={item.label}
                   primaryTypographyProps={{
-                    fontWeight: text === "Home" ? "bold" : "normal",
+                    fontWeight: item.label === "Home" ? "bold" : "normal",
                   }}
                 />
               </ListItemButton>
@@ -97,14 +113,14 @@ const Navbar = () => {
       </List>
     </Box>
   );
- 
+
   return (
     <>
       {/* App Bar for Mobile */}
       {isMobile && (
         <AppBar position="fixed" sx={{ backgroundColor: "#3b3832" }}>
           <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={toggleDrawer(true)}>
+            <IconButton edge="start" color="inherit" onClick={toggleDrawer(true)} aria-label="menu">
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
@@ -113,7 +129,7 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
       )}
- 
+
       {/* Responsive Drawer */}
       <Drawer
         variant={isMobile ? "temporary" : "permanent"}
@@ -133,6 +149,5 @@ const Navbar = () => {
     </>
   );
 };
- 
+
 export default Navbar;
- 

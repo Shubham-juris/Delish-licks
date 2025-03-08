@@ -6,13 +6,13 @@ import heroimage from "../../assets/Hero/herobg.png";
  
 const Hero = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md")); // Breakpoint for mobile screens
+  const isMobile = useMediaQuery(theme.breakpoints.down("md")); 
  
   return (
     <Box
       sx={{
-        marginLeft: isMobile ? "0" : "320px", // No margin on mobile, keep it on larger screens
-        width: isMobile ? "100%" : "calc(100% - 320px)", // Adjust width accordingly
+        marginLeft: isMobile ? "0" : "320px",
+        width: isMobile ? "100%" : "calc(100% - 320px)",
         height: "100vh",
         backgroundImage: `url(${heroimage})`,
         backgroundSize: "cover",
@@ -26,7 +26,6 @@ const Hero = () => {
         padding: "20px",
       }}
     >
-      {/* Dark Overlay */}
       <Box
         sx={{
           position: "absolute",
@@ -34,12 +33,10 @@ const Hero = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark overlay for readability
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       />
- 
-      {/* Content */}
-      <Box
+       <Box
         sx={{
           position: "relative",
           zIndex: 1,
@@ -48,14 +45,18 @@ const Hero = () => {
         }}
       >
         <Typography
-          variant={isMobile ? "h4" : "h3"} // Smaller heading on mobile
-          fontWeight="bold"
-          sx={{ fontFamily: "'Pacifico', cursive", height: "none" }}
+        variant={isMobile ? "h4" : "h3"}
+        fontWeight="bold"
+        sx={{
+            fontFamily: "'Pacifico', cursive",
+            lineHeight: "normal !important",
+        }}
         >
-          Elevate Your Dining Experience
+        Elevate Your Dining Experience
         </Typography>
+
         <Typography
-          variant={isMobile ? "body1" : "h6"} // Adjust text size
+          variant={isMobile ? "body1" : "h6"} 
           mt={2}
         >
           Indulge in an exquisite selection of fine dining options at Delish-Licks
@@ -66,9 +67,9 @@ const Hero = () => {
             mt: 3,
             borderColor: "white",
             color: "white",
-            padding: isMobile ? "8px 16px" : "10px 20px", // Smaller button padding for mobile
+            padding: isMobile ? "8px 16px" : "10px 20px", 
             fontWeight: "bold",
-            fontSize: isMobile ? "14px" : "16px", // Adjust button text size
+            fontSize: isMobile ? "14px" : "16px",
             "&:hover": { backgroundColor: "white", color: "#3b3832" },
           }}
         >

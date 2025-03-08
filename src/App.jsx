@@ -1,17 +1,11 @@
-import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
+import Routes from "./routes/Routes";
 
-function App() {
+const App = () => {
   return (
     <>
-      <Navbar/>
-      <Hero/>
-      <About/>
+      <Routes />
     </>
   );
-}
+};
 
 export default App;
