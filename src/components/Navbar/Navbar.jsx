@@ -1,153 +1,121 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemButton,
-  Box,
-  IconButton,
-  AppBar,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useTheme } from "@mui/material/styles";
-import { useMediaQuery } from "@mui/material";
-import logoimage from "../../assets/Navbar/delishlogo.png";
+import React from 'react';
+import { Drawer, List, ListItem, ListItemText, Divider, Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import logoimage from '../../assets/Navbar/delishlogo.png'; // Your logo import
+import HomeIcon from '@mui/icons-material/Home';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import WorkIcon from '@mui/icons-material/Work';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import MenuIcon from '@mui/icons-material/Menu'; // For toggle button
 
 const Navbar = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const [open, setOpen] = useState(false);
-  const location = useLocation();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md')); // True for screens < md (960px)
 
-  const toggleDrawer = (state) => () => setOpen(state);
+    const drawerWidth = 320; // Width of the navbar
 
-  const menuItems = [
-    { label: "Home", path: "/Home" },
-    { label: "Menu", path: "/Menu" },
-    { label: "Kids Zone", path: "/Kids-Zone" },
-    { label: "Play Zone", path: "/Play-Zone" },
-    { label: "Careers", path: "/Careers" },
-    { label: "Contact", path: "/Contact" },
-  ];
+    const menuItems = [
+        { text: 'Home', icon: <HomeIcon /> },
+        { text: 'Menu', icon: <RestaurantMenuIcon /> },
+        { text: 'Kids zone', icon: <ChildCareIcon /> },
+        { text: 'Play zone', icon: <SportsEsportsIcon /> },
+        { text: 'Careers', icon: <WorkIcon /> },
+        { text: 'Contact', icon: <ContactMailIcon /> },
+    ];
 
-  // FIX: Scroll to top when clicking "Home" even if already on /hero
-  useEffect(() => {
-    if (location.pathname === "/Home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [location]);
+    return (
+        <>
+            {isMobile ? (
+                // Temporary drawer for mobile (toggle button can be added here)
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    sx={{
+                        position: 'fixed',
+                        top: 10,
+                        left: 10,
+                        zIndex: 1100,
+                        backgroundColor: '#2f2f2f',
+                        color: 'white',
+                        '&:hover': { backgroundColor: '#424242' },
+                    }}
+                >
+                    <MenuIcon />
+                </IconButton>
+            ) : (
+                <Drawer
+                    sx={{
+                        width: drawerWidth,
+                        flexShrink: 0,
+                        '& .MuiDrawer-paper': {
+                            width: drawerWidth,
+                            boxSizing: 'border-box',
+                            backgroundColor: '#2f2f2f',
+                            color: 'white',
+                            position: 'fixed',
+                            height: '100vh',
+                            top: 0,
+                            left: 0,
+                            zIndex: 1000,
+                        },
+                    }}
+                    variant="permanent"
+                    anchor="left"
+                >
+                    {/* Logo Section */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            padding: '80px 0', // Increased padding to move logo lower
+                        }}
+                    >
+                        <img
+                            src={logoimage}
+                            alt="Delish-Licks Logo"
+                            style={{
+                                width: '200px', // Increased width
+                                height: 'auto',
+                            }}
+                        />
+                    </Box>
 
-  // Animation variants for list items
-  const listItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" },
-    }),
-  };
+                    {/* <Divider sx={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }} /> */}
 
-  const drawerContent = (
-    <Box
-      sx={{
-        width: 320,
-        backgroundColor: "#3b3832",
-        color: "white",
-        height: "100vh",
-        paddingTop: "60px",
-      }}
-      role="presentation"
-      onClick={isMobile ? toggleDrawer(false) : undefined}
-      onKeyDown={isMobile ? toggleDrawer(false) : undefined}
-    >
-      {/* Logo */}
-      <Box display="flex" justifyContent="center" mb={2}>
-        <img
-          src={logoimage}
-          alt="Delish-Licks Logo"
-          style={{
-            width: "180px",
-            border: "6px solid #232320",
-            height: "auto",
-            marginBottom: "48px",
-          }}
-        />
-      </Box>
-
-      {/* Navigation Links with Animation */}
-      <List>
-        {menuItems.map((item, index) => (
-          <motion.div
-            key={item.path}
-            variants={listItemVariants}
-            initial="hidden"
-            animate="visible"
-            custom={index}
-          >
-            <ListItem disablePadding>
-              <ListItemButton
-                sx={{ padding: "10px 65px" }}
-                component={Link}
-                to={item.path}
-                onClick={() => {
-                  if (item.path === "/hero" && location.pathname === "/hero") {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
-                }}
-              >
-                <ListItemText
-                  primary={item.label}
-                  primaryTypographyProps={{
-                    fontWeight: item.label === "Home" ? "bold" : "normal",
-                  }}
-                />
-              </ListItemButton>
-            </ListItem>
-          </motion.div>
-        ))}
-      </List>
-    </Box>
-  );
-
-  return (
-    <>
-      {/* App Bar for Mobile */}
-      {isMobile && (
-        <AppBar position="fixed" sx={{ backgroundColor: "#3b3832" }}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={toggleDrawer(true)} aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              Delish-Licks
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      )}
-
-      {/* Responsive Drawer */}
-      <Drawer
-        variant={isMobile ? "temporary" : "permanent"}
-        open={isMobile ? open : true}
-        onClose={toggleDrawer(false)}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: 320,
-            backgroundColor: "#3b3832",
-            color: "white",
-            paddingTop: isMobile ? "60px" : "20px",
-          },
-        }}
-      >
-        {drawerContent}
-      </Drawer>
-    </>
-  );
+                    {/* Menu Items */}
+                    <List>
+                        {menuItems.map((item, index) => (
+                            <ListItem
+                                button
+                                key={index}
+                                sx={{
+                                    justifyContent: 'start',
+                                    padding: '10px 60px',
+                                    '&:hover': {
+                                        backgroundColor: '#424242',
+                                    },
+                                }}
+                            >
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                    {item.icon}
+                                    <ListItemText
+                                        primary={item.text}
+                                        primaryTypographyProps={{
+                                            fontSize: '18px',
+                                            textAlign: 'center',
+                                        }}
+                                    />
+                                </Box>
+                            </ListItem>
+                        ))}
+                    </List>
+                </Drawer>
+            )}
+        </>
+    );
 };
 
 export default Navbar;
