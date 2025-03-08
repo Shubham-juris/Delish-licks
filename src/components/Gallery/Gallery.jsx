@@ -32,21 +32,26 @@ const Gallery = () => {
                 padding: { xs: '20px 10px', md: '40px 20px' }, // Responsive padding
                 boxSizing: 'border-box',
                 overflowX: 'hidden',
-                backgroundColor: '#f9f9f9', // Light background for contrast
+                backgroundColor: '#3D3B35', // Light background for contrast
             }}
         >
             {/* Heading */}
             <Typography
                 variant="h3"
                 sx={{
-                    fontSize: { xs: '1.5rem', md: '3rem' },
+                    fontSize: { xs: '0.8rem', md: '1rem' },
                     fontWeight: 'bold',
                     textAlign: 'center',
+                    color: '#F7F7F7',
                     mb: { xs: 3, md: 5 },
                     fontFamily: "'Dancing Script', cursive",
+                    textTransform: 'uppercase',
+                    fontFamily: 'Droid Sans',
+                    lineHeight: 2,
+                    letterSpacing: 3,
                 }}
             >
-                Our Gallery
+                Delish-Licks: A Photo Gallery of our restaurant
             </Typography>
 
             {/* Image Grid */}
