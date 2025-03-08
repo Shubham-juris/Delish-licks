@@ -1,83 +1,84 @@
-import React from "react";
-import { Box, Typography, Button } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { useMediaQuery } from "@mui/material";
-import heroimage from "../../assets/Hero/herobg.png";
- 
-const Hero = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md")); 
- 
-  return (
-    <Box
-      sx={{
-        marginLeft: isMobile ? "0" : "320px",
-        width: isMobile ? "100%" : "calc(100% - 320px)",
-        height: "100vh",
-        backgroundImage: `url(${heroimage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "white",
-        textAlign: "center",
-        position: "relative",
-        padding: "20px",
-      }}
-    >
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-        }}
-      />
-       <Box
-        sx={{
-          position: "relative",
-          zIndex: 1,
-          maxWidth: "90%",
-          textAlign: "center",
-        }}
-      >
-        <Typography
-        variant={isMobile ? "h4" : "h3"}
-        fontWeight="bold"
-        sx={{
-            fontFamily: "'Pacifico', cursive",
-            lineHeight: "normal !important",
-        }}
-        >
-        Elevate Your Dining Experience
-        </Typography>
+import React from 'react';
+import { Box, Typography, Button } from '@mui/material';
+import heroimage from '../../assets/Hero/herobg.png'; // Imported hero background image
 
-        <Typography
-          variant={isMobile ? "body1" : "h6"} 
-          mt={2}
+const Hero = () => {
+    return (
+        <Box
+            sx={{
+                position: 'relative',
+                height: { xs: '60vh', md: '80vh' }, // Smaller height on mobile
+                width: { xs: '100%', md: 'calc(100% - 320px)' }, // Full width on mobile, adjusted on desktop
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundImage: `url(${heroimage})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'scroll',
+                color: 'white',
+                textAlign: 'center',
+                padding: { xs: '0 10px', md: '0 20px' }, // Reduced padding on mobile
+                boxSizing: 'border-box',
+                overflowX: 'hidden',
+                ml: { xs: 0, md: '320px' }, // No margin on mobile, margin for navbar on desktop
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                    zIndex: 1,
+                },
+            }}
         >
-          Indulge in an exquisite selection of fine dining options at Delish-Licks
-        </Typography>
-        <Button
-          variant="outlined"
-          sx={{
-            mt: 3,
-            borderColor: "white",
-            color: "white",
-            padding: isMobile ? "8px 16px" : "10px 20px", 
-            fontWeight: "bold",
-            fontSize: isMobile ? "14px" : "16px",
-            "&:hover": { backgroundColor: "white", color: "#3b3832" },
-          }}
-        >
-          MAKE A RESERVATION
-        </Button>
-      </Box>
-    </Box>
-  );
+            <Box sx={{ position: 'relative', zIndex: 2 }}>
+                <Typography
+                    variant="h2"
+                    sx={{
+                        fontSize: { xs: '1.5rem', sm: '2rem', md: '3.5rem' }, // Responsive font sizes
+                        fontWeight: 'bold',
+                        mb: { xs: 1, md: 2 },
+                        fontFamily: '"Dancing Script", cursive',
+                    }}
+                >
+                    Elevate Your Dining Experience
+                </Typography>
+
+                <Typography
+                    variant="h6"
+                    sx={{
+                        fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.5rem' },
+                        mb: { xs: 2, md: 4 },
+                        maxWidth: { xs: '90%', md: '600px' },
+                    }}
+                >
+                    Indulge in an exquisite selection of fine dining options at Delish-Licks
+                </Typography>
+
+                <Button
+                    variant="contained"
+                    sx={{
+                        backgroundColor: '#8b3a8b',
+                        color: 'white',
+                        padding: { xs: '8px 20px', md: '10px 30px' },
+                        fontSize: { xs: '0.9rem', md: '1rem' },
+                        fontWeight: 'bold',
+                        borderRadius: '5px',
+                        '&:hover': {
+                            backgroundColor: '#6a2c6a',
+                        },
+                    }}
+                >
+                    Make a Reservation
+                </Button>
+            </Box>
+        </Box>
+    );
 };
- 
+
 export default Hero;
