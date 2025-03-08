@@ -1,13 +1,14 @@
 import React from 'react';
 import { Drawer, List, ListItem, ListItemText, Divider, Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
-import logoimage from '../../assets/Navbar/delishlogo.png'; // Your logo import
+import { Link } from 'react-router-dom';
+import logoimage from '../../assets/Navbar/delishlogo.png'; // Logo import
 import HomeIcon from '@mui/icons-material/Home';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import ChildCareIcon from '@mui/icons-material/ChildCare';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import MenuIcon from '@mui/icons-material/Menu'; // For toggle button
+import MenuIcon from '@mui/icons-material/Menu'; // Toggle button for mobile
 
 const Navbar = () => {
     const theme = useTheme();
@@ -16,18 +17,17 @@ const Navbar = () => {
     const drawerWidth = 320; // Width of the navbar
 
     const menuItems = [
-        { text: 'Home', icon: <HomeIcon /> },
-        { text: 'Menu', icon: <RestaurantMenuIcon /> },
-        { text: 'Kids zone', icon: <ChildCareIcon /> },
-        { text: 'Play zone', icon: <SportsEsportsIcon /> },
-        { text: 'Careers', icon: <WorkIcon /> },
-        { text: 'Contact', icon: <ContactMailIcon /> },
+        { text: 'Home', path: '/Home', icon: <HomeIcon /> },
+        { text: 'Menu', path: '/Menu', icon: <RestaurantMenuIcon /> },
+        { text: 'Kids Zone', path: '/Kids-Zone', icon: <ChildCareIcon /> },
+        { text: 'Play Zone', path: '/Play-Zone', icon: <SportsEsportsIcon /> },
+        { text: 'Careers', path: '/Careers', icon: <WorkIcon /> },
+        { text: 'Contact', path: '/Contact', icon: <ContactMailIcon /> },
     ];
 
     return (
         <>
             {isMobile ? (
-                // Temporary drawer for mobile (toggle button can be added here)
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
@@ -52,7 +52,7 @@ const Navbar = () => {
                         '& .MuiDrawer-paper': {
                             width: drawerWidth,
                             boxSizing: 'border-box',
-                            backgroundColor: '#2f2f2f',
+                            backgroundColor: '#3D3B35',
                             color: 'white',
                             position: 'fixed',
                             height: '100vh',
@@ -83,33 +83,32 @@ const Navbar = () => {
                         />
                     </Box>
 
-                    {/* <Divider sx={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }} /> */}
-
                     {/* Menu Items */}
                     <List>
                         {menuItems.map((item, index) => (
-                            <ListItem
-                                button
-                                key={index}
-                                sx={{
-                                    justifyContent: 'start',
-                                    padding: '10px 60px',
-                                    '&:hover': {
-                                        backgroundColor: '#424242',
-                                    },
-                                }}
-                            >
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                    {item.icon}
-                                    <ListItemText
-                                        primary={item.text}
-                                        primaryTypographyProps={{
-                                            fontSize: '18px',
-                                            textAlign: 'center',
-                                        }}
-                                    />
-                                </Box>
-                            </ListItem>
+                            <Link to={item.path} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <ListItem
+                                    button
+                                    sx={{
+                                        justifyContent: 'start',
+                                        padding: '10px 60px',
+                                        '&:hover': {
+                                            backgroundColor: '#424242',
+                                        },
+                                    }}
+                                >
+                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                        {item.icon}
+                                        <ListItemText
+                                            primary={item.text}
+                                            primaryTypographyProps={{
+                                                fontSize: '18px',
+                                                textAlign: 'center',
+                                            }}
+                                        />
+                                    </Box>
+                                </ListItem>
+                            </Link>
                         ))}
                     </List>
                 </Drawer>
@@ -119,3 +118,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+ 

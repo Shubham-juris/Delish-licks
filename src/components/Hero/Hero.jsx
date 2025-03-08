@@ -1,14 +1,14 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import heroimage from '../../assets/Hero/herobg.png'; // Imported hero background image
+import heroimage from '../../assets/Hero/herobg.png'; 
 
 const Hero = () => {
     return (
         <Box
             sx={{
                 position: 'relative',
-                height: { xs: '60vh', md: '80vh' }, // Smaller height on mobile
-                width: { xs: '100%', md: 'calc(100% - 320px)' }, // Full width on mobile, adjusted on desktop
+                height: { xs: '60vh', md: '80vh' },
+                width: { xs: '100%', md: 'calc(100% - 320px)' },
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -20,10 +20,10 @@ const Hero = () => {
                 backgroundAttachment: 'scroll',
                 color: 'white',
                 textAlign: 'center',
-                padding: { xs: '0 10px', md: '0 20px' }, // Reduced padding on mobile
+                padding: { xs: '0 10px', md: '0 20px' },
                 boxSizing: 'border-box',
                 overflowX: 'hidden',
-                ml: { xs: 0, md: '320px' }, // No margin on mobile, margin for navbar on desktop
+                ml: { xs: 0, md: '320px' },
                 '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -36,14 +36,16 @@ const Hero = () => {
                 },
             }}
         >
-            <Box sx={{ position: 'relative', zIndex: 2 }}>
+            <Box sx={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
                 <Typography
                     variant="h2"
                     sx={{
-                        fontSize: { xs: '1.5rem', sm: '2rem', md: '3.5rem' }, // Responsive font sizes
+                        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
                         fontWeight: 'bold',
-                        mb: { xs: 1, md: 2 },
                         fontFamily: '"Dancing Script", cursive',
+                        mb: 1,
+                        lineHeight: 2,
+                        letterSpacing: 2,
                     }}
                 >
                     Elevate Your Dining Experience
@@ -52,29 +54,36 @@ const Hero = () => {
                 <Typography
                     variant="h6"
                     sx={{
-                        fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.5rem' },
-                        mb: { xs: 2, md: 4 },
+                        fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' },
                         maxWidth: { xs: '90%', md: '600px' },
+                        margin: 'auto',
+                        lineHeight: 1.3,
+                        letterSpacing: 2.1,
+                        mb: 2,                      
                     }}
                 >
                     Indulge in an exquisite selection of fine dining options at Delish-Licks
                 </Typography>
 
                 <Button
-                    variant="contained"
+                    variant="outlined"
                     sx={{
-                        backgroundColor: '#8b3a8b',
+                        mt: 2,
+                        borderColor: 'white',
                         color: 'white',
                         padding: { xs: '8px 20px', md: '10px 30px' },
                         fontSize: { xs: '0.9rem', md: '1rem' },
                         fontWeight: 'bold',
                         borderRadius: '5px',
                         '&:hover': {
-                            backgroundColor: '#6a2c6a',
+                            color :'Black',
+                            borderColor: 'Black',
+                            backgroundColor: 'rgba(235, 224, 224, 0.47)',
+                            // backgroundColor: 'rgba(255, 255, 255, 0.2)',
                         },
                     }}
                 >
-                    Make a Reservation
+                    MAKE A RESERVATION
                 </Button>
             </Box>
         </Box>

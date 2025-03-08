@@ -8,15 +8,15 @@ const SocialMedia = () => {
     return (
         <Box
             sx={{
-                width: { xs: '100%', md: 'calc(100% - 320px)' }, // Full width on mobile, adjusted on desktop
-                ml: { xs: 0, md: '320px' }, // No margin on mobile, margin for navbar on desktop
-                padding: { xs: '20px 10px', md: '40px 20px' }, // Responsive padding
+                width: { xs: '100%', md: 'calc(100% - 320px)' },
+                ml: { xs: 0, md: '320px' }, 
+                padding: { xs: '40px 10px', md: '60px 20px' },
                 boxSizing: 'border-box',
                 overflowX: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                backgroundColor: '#fff', // White background as in the image
+                backgroundColor: '#fff', 
             }}
         >
             {/* Heading */}
@@ -25,7 +25,10 @@ const SocialMedia = () => {
                 sx={{
                     fontSize: { xs: '0.9rem', md: '1rem' },
                     color: '#666',
-                    mb: 2,
+                    fontWeight: 'bold',
+                    lineHeight: 2,
+                    letterSpacing: 4,
+                    margin: { xs: '20px 0', md: '40px 0' },
                     textAlign: 'center',
                 }}
             >
@@ -41,11 +44,11 @@ const SocialMedia = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                        color: '#3b5998', // Facebook blue
+                        color: '#3b5998', 
                         '&:hover': { color: '#2d4373' },
                     }}
                 >
-                    <FacebookIcon sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }} />
+                    <FacebookIcon sx={{ fontSize: { xs: '2rem', md: '3rem' } }} />
                 </IconButton>
 
                 {/* Instagram */}
@@ -59,7 +62,7 @@ const SocialMedia = () => {
                         '&:hover': { color: '#c13584' },
                     }}
                 >
-                    <InstagramIcon sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }} />
+                    <InstagramIcon sx={{ fontSize: { xs: '2rem', md: '3rem' } }} />
                 </IconButton>
 
                 {/* X (Twitter) */}
@@ -73,7 +76,7 @@ const SocialMedia = () => {
                         '&:hover': { color: '#333' },
                     }}
                 >
-                    <TwitterIcon sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }} />
+                    <TwitterIcon sx={{ fontSize: { xs: '2rem', md: '3rem' } }} />
                 </IconButton>
             </Box>
         </Box>
