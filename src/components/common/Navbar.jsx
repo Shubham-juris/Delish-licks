@@ -1,20 +1,20 @@
 import React from 'react';
 import { Drawer, List, ListItem, ListItemText, Divider, Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
-import logoimage from '../../assets/Navbar/delishlogo.png'; // Logo import
+import logoimage from '../../assets/Navbar/delishlogo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import ChildCareIcon from '@mui/icons-material/ChildCare';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import MenuIcon from '@mui/icons-material/Menu'; // Toggle button for mobile
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md')); // True for screens < md (960px)
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const drawerWidth = 320; // Width of the navbar
+    const drawerWidth = 320;
 
     const menuItems = [
         { text: 'Home', path: '/Home', icon: <HomeIcon /> },
@@ -64,26 +64,23 @@ const Navbar = () => {
                     variant="permanent"
                     anchor="left"
                 >
-                    {/* Logo Section */}
                     <Box
                         sx={{
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            padding: '80px 0', // Increased padding to move logo lower
+                            padding: '80px 0', 
                         }}
                     >
                         <img
                             src={logoimage}
                             alt="Delish-Licks Logo"
                             style={{
-                                width: '200px', // Increased width
+                                width: '200px',
                                 height: 'auto',
                             }}
                         />
                     </Box>
-
-                    {/* Menu Items */}
                     <List>
                         {menuItems.map((item, index) => (
                             <Link to={item.path} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>

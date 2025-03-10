@@ -5,19 +5,18 @@ const Footer = () => {
     return (
         <Box
             sx={{
-                width: { xs: '100%', md: 'calc(100% - 320px)' }, // Full width on mobile, adjusted on desktop
-                ml: { xs: 0, md: '320px' }, // No margin on mobile, margin for navbar on desktop
-                padding: { xs: '20px 10px', md: '20px 20px' }, // Responsive padding
+                width: { xs: '100%', md: 'calc(100% - 320px)' },
+                ml: { xs: 0, md: '320px' },
+                padding: { xs: '20px 10px', md: '20px 20px' },
                 boxSizing: 'border-box',
                 overflowX: 'hidden',
-                backgroundColor: '#f9f9f9', // Light background as in the image
+                backgroundColor: '#f9f9f9',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                borderTop: '1px solid #eee', // Optional: Add a top border for separation
+                borderTop: '1px solid #eee',
             }}
         >
-            {/* Copyright Text */}
             <Typography
                 variant="body2"
                 sx={{
@@ -28,8 +27,6 @@ const Footer = () => {
             >
                 COPYRIGHT © 2024 DELISH-LICKS.COM - ALL RIGHTS RESERVED
             </Typography>
-
-            {/* Powered By Text */}
             <Typography
                 variant="body2"
                 sx={{

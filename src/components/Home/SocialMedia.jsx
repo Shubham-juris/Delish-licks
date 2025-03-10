@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook'; // Facebook icon
-import InstagramIcon from '@mui/icons-material/Instagram'; // Instagram icon
-import TwitterIcon from '@mui/icons-material/Twitter'; // X (Twitter) icon
+import FacebookIcon from '@mui/icons-material/Facebook'; 
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 const SocialMedia = () => {
     return (
@@ -19,7 +19,6 @@ const SocialMedia = () => {
                 backgroundColor: '#fff', 
             }}
         >
-            {/* Heading */}
             <Typography
                 variant="subtitle1"
                 sx={{
@@ -35,9 +34,7 @@ const SocialMedia = () => {
                 SOCIAL
             </Typography>
 
-            {/* Social Icons */}
             <Box sx={{ display: 'flex', gap: 2 }}>
-                {/* Facebook */}
                 <IconButton
                     component="a"
                     href="https://facebook.com"
@@ -51,28 +48,25 @@ const SocialMedia = () => {
                     <FacebookIcon sx={{ fontSize: { xs: '2rem', md: '3rem' } }} />
                 </IconButton>
 
-                {/* Instagram */}
                 <IconButton
                     component="a"
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                        color: '#e4405f', // Instagram pink
+                        color: '#e4405f',
                         '&:hover': { color: '#c13584' },
                     }}
                 >
                     <InstagramIcon sx={{ fontSize: { xs: '2rem', md: '3rem' } }} />
                 </IconButton>
-
-                {/* X (Twitter) */}
                 <IconButton
                     component="a"
                     href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                        color: '#000', // X black
+                        color: '#000',
                         '&:hover': { color: '#333' },
                     }}
                 >

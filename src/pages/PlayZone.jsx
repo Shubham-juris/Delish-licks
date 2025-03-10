@@ -2,7 +2,8 @@ import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
 
 
-const Main = () => {
+
+const PlayZone = () => {
   return (
     <>
       <Navbar />
@@ -11,4 +12,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default PlayZone;

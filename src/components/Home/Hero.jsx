@@ -79,7 +79,7 @@ const Hero = () => {
                             color :'Black',
                             borderColor: 'Black',
                             backgroundColor: 'rgba(235, 224, 224, 0.47)',
-                            // backgroundColor: 'rgba(255, 255, 255, 0.2)',
+
                         },
                     }}
                 >
