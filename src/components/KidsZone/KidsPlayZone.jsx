@@ -23,7 +23,8 @@ const KidsPlayZone = () => {
                 sx={{
                     width: { xs: '100%', md: '45%' },
                     textAlign: 'left',
-                    padding: '0 5rem',
+                    maxWidth: { xs: '100%', md: '45%' },
+                    px: { xs: '6rem', sm: '2rem', md: '5rem' },
                 }}
             >
                 <Typography
@@ -37,7 +38,7 @@ const KidsPlayZone = () => {
                 >
                    Welcome to the Kids Play Zone at Delish-Licks
                 </Typography>
-                <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.6 }}>
+                <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.6 ,px: { xs: '1 rem', sm: '2rem', md: '5rem' }, }}>
                     At Delish-Licks, we understand the importance of keeping our younger guests entertained while their grown-ups relax and enjoy their dining experience. That's why we've created a dedicated Kids Play Zone that's bursting with excitement and endless possibilities.                </Typography>
                 <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.6 }}>
                     Imagine a colorful wonderland filled with interactive games, creative activities, and safe play areas designed to spark the imagination and keep little ones engaged for hours on end. From ball pits and climbing structures to educational toys and hands-on crafts, our Kids Play Zone is a haven where children can let their imaginations run wild while making new friends along the way.                </Typography>
