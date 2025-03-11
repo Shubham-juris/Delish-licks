@@ -49,7 +49,7 @@ const Menu = () => {
       <Navbar />
       <Box component="main" sx={{ flex: 1, ml: { md: "320px" }, width: { md: "calc(100% - 320px)" } }}>
         <MenuHeader isExtraSmall={isExtraSmall} isSmallScreen={isSmallScreen} />
-        <Container maxWidth="lg" sx={{ py: 4, bgcolor: "#2c2a26", color: "common.white", borderRadius: 2 }}>
+        <Container maxWidth="lg" sx={{ py: 4, bgcolor: "#3D3B35", color: "common.white" }}>
           {MENU_SECTIONS.map((Section, index) => (
             <Fade key={index} in={!!visibleSections[index]} timeout={600}>
               <Box ref={(el) => (sectionRefs.current[index] = el)} sx={{ py: 3, borderBottom: index < MENU_SECTIONS.length - 1 ? "1px solid rgba(255, 255, 255, 0.1)" : "none" }}>
@@ -59,7 +59,7 @@ const Menu = () => {
           ))}
         </Container>
       </Box>
-      <Footer sx={{ mt: "auto", bgcolor: "grey.900", py: 4, color: "common.white" }} />
+      <Footer/>
     </Box>
   );
 };

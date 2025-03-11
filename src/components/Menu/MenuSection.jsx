@@ -9,10 +9,10 @@ const MenuSection = ({ title, subtitle, items, isMobile, showDisclaimer = false 
 
   return (
     <Container maxWidth="lg" sx={{ pb: 4, px: { xs: 2, sm: 4, md: 6 } }}>
-      <Typography variant="h4" fontWeight="bold" fontFamily="'Pacifico', cursive" sx={{ mb: 1, color: "white" }}>
+      <Typography variant="h5" fontWeight="bold" fontFamily="'Pacifico', cursive" sx={{ mb: 1, color: "white" }}>
         {title}
       </Typography>
-      <Typography variant="body1" fontFamily="'Pacifico', cursive" sx={{ mb: 3 }}>
+      <Typography variant="body1" sx={{ mb: 3 }}>
         {subtitle}
       </Typography>
 
@@ -36,6 +36,6 @@ const MenuSection = ({ title, subtitle, items, isMobile, showDisclaimer = false 
       )}
     </Container>
   );
-};
+}; 
 
 export default MenuSection;
