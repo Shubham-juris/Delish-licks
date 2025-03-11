@@ -10,7 +10,7 @@ const KidsZone = () => {
       <Navbar />
       <KidsBanner />
       <KidsPlayZone />
-      <KidZone />
+      {/* <KidZone /> */}
       <Footer/>
     </>
   );
