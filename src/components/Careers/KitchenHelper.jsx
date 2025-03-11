@@ -111,7 +111,7 @@ const KitchenHelper = () => {
                     <TextField fullWidth label="Name" variant="outlined" sx={{ mb: 2, input: { color: "white" }, label: { color: "white" }, fieldset: { borderColor: "white" } }} />
                     <TextField fullWidth label="Phone" variant="outlined" sx={{ mb: 2, input: { color: "white" }, label: { color: "white" }, fieldset: { borderColor: "white" } }} />
                     <TextField fullWidth label="Email*" variant="outlined" sx={{ mb: 2, input: { color: "white" }, label: { color: "white" }, fieldset: { borderColor: "white" } }} />
-                    <TextField fullWidth label="Message" variant="outlined" multiline rows={3} sx={{ mb: 2, input: { color: "white" }, label: { color: "white" }, fieldset: { borderColor: "white" } }} />
+                    <TextField fullWidth label="Message" variant="outlined" multiline rows={6} sx={{ mb: 2, input: { color: "white" }, label: { color: "white" }, fieldset: { borderColor: "white" } }} />
 
                     {/* File Upload (Resume) */}
                     <Typography sx={{ mb: 2, display: "flex", alignItems: "center", cursor: "pointer" }}>
