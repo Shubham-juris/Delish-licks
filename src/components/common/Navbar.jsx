@@ -1,5 +1,15 @@
-import React from 'react';
-import { Drawer, List, ListItem, ListItemText, Divider, Box, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import React, { useState } from 'react';
+import {
+    Drawer,
+    List,
+    ListItem,
+    ListItemText,
+    Divider,
+    Box,
+    IconButton,
+    useMediaQuery,
+    useTheme,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import logoimage from '../../assets/Navbar/delishlogo.png';
 import HomeIcon from '@mui/icons-material/Home';
@@ -13,8 +23,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const drawerWidth = 320;
+
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
 
     const menuItems = [
         { text: 'Home', path: '/Home', icon: <HomeIcon /> },
@@ -25,25 +40,94 @@ const Navbar = () => {
         { text: 'Contact', path: '/Contact', icon: <ContactMailIcon /> },
     ];
 
+    const drawerContent = (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '40px 0',
+                }}
+            >
+                <img
+                    src={logoimage}
+                    alt="Delish-Licks Logo"
+                    style={{ width: '200px', height: 'auto' }}
+                />
+            </Box>
+            <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)' }} />
+            <List>
+                {menuItems.map((item, index) => (
+                    <Link to={item.path} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <ListItem
+                            button
+                            onClick={() => setMobileOpen(false)} // Close drawer on item click
+                            sx={{
+                                justifyContent: 'start',
+                                padding: '10px 60px',
+                                '&:hover': {
+                                    backgroundColor: '#424242',
+                                },
+                            }}
+                        >
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                                {item.icon}
+                                <ListItemText
+                                    primary={item.text}
+                                    primaryTypographyProps={{
+                                        fontSize: '18px',
+                                        textAlign: 'center',
+                                    }}
+                                />
+                            </Box>
+                        </ListItem>
+                    </Link>
+                ))}
+            </List>
+        </>
+    );
+
     return (
         <>
             {isMobile ? (
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
-                    sx={{
-                        position: 'fixed',
-                        top: 10,
-                        left: 10,
-                        zIndex: 1100,
-                        backgroundColor: '#2f2f2f',
-                        color: 'white',
-                        '&:hover': { backgroundColor: '#424242' },
-                    }}
-                >
-                    <MenuIcon />
-                </IconButton>
+                <>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{
+                            position: 'fixed',
+                            top: 10,
+                            left: 10,
+                            zIndex: 1200,
+                            backgroundColor: '#2f2f2f',
+                            color: 'white',
+                            '&:hover': { backgroundColor: '#424242' },
+                        }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+
+                    <Drawer
+                        variant="temporary"
+                        open={mobileOpen}
+                        onClose={handleDrawerToggle}
+                        ModalProps={{
+                            keepMounted: true,
+                        }}
+                        sx={{
+                            '& .MuiDrawer-paper': {
+                                width: drawerWidth,
+                                backgroundColor: '#3D3B35',
+                                color: 'white',
+                            },
+                        }}
+                    >
+                        {drawerContent}
+                    </Drawer>
+                </>
             ) : (
                 <Drawer
                     sx={{
@@ -64,50 +148,7 @@ const Navbar = () => {
                     variant="permanent"
                     anchor="left"
                 >
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: '80px 0', 
-                        }}
-                    >
-                        <img
-                            src={logoimage}
-                            alt="Delish-Licks Logo"
-                            style={{
-                                width: '200px',
-                                height: 'auto',
-                            }}
-                        />
-                    </Box>
-                    <List>
-                        {menuItems.map((item, index) => (
-                            <Link to={item.path} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                <ListItem
-                                    button
-                                    sx={{
-                                        justifyContent: 'start',
-                                        padding: '10px 60px',
-                                        '&:hover': {
-                                            backgroundColor: '#424242',
-                                        },
-                                    }}
-                                >
-                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                        {item.icon}
-                                        <ListItemText
-                                            primary={item.text}
-                                            primaryTypographyProps={{
-                                                fontSize: '18px',
-                                                textAlign: 'center',
-                                            }}
-                                        />
-                                    </Box>
-                                </ListItem>
-                            </Link>
-                        ))}
-                    </List>
+                    {drawerContent}
                 </Drawer>
             )}
         </>
@@ -115,4 +156,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
- 
