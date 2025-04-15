@@ -12,9 +12,10 @@ const Footer = () => {
                 overflowX: 'hidden',
                 backgroundColor: '#f9f9f9',
                 display: 'flex',
-                justifyContent: 'space-between',
+                justifyContent: 'center',
                 alignItems: 'center',
                 borderTop: '1px solid #eee',
+                textAlign: 'center',
             }}
         >
             <Typography
@@ -22,20 +23,9 @@ const Footer = () => {
                 sx={{
                     fontSize: { xs: '0.8rem', md: '0.9rem' },
                     color: '#666',
-                    textAlign: 'left',
                 }}
             >
                 COPYRIGHT © 2024 DELISH-LICKS.COM - ALL RIGHTS RESERVED
-            </Typography>
-            <Typography
-                variant="body2"
-                sx={{
-                    fontSize: { xs: '0.8rem', md: '0.9rem' },
-                    color: '#666',
-                    textAlign: 'right',
-                }}
-            >
-                POWERED BY KTL SOFTWARE
             </Typography>
         </Box>
     );

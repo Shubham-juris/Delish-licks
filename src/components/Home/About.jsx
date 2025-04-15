@@ -84,7 +84,7 @@ const About = () => {
                 </Typography>
 
                 <Link
-                    href="#"
+                    href="/Contact"
                     sx={{
                         mt : { xs: 3, md: 5 },
                         display: 'flex',
@@ -95,22 +95,14 @@ const About = () => {
                         fontWeight: 'bold',
                         lineHeight: 5,
                         letterSpacing: 2,
-                        fontSize: { xs: '0.9rem', md: '1rem' },
+                        fontSize: { xs: '0.9rem', md: '1.5rem' },
                         '&:hover': {
                             textDecoration: 'underline',
                         },
                     }}
                 >
-                    CONTACT US 
-                    <Box
-                        component="span"
-                        sx={{
-                            ml: 1,
-                            fontSize: { xs: '1rem', md: '1.2rem' },
-                        }}
-                    >
-                        &gt;
-                    </Box>
+                    CONTACT US &gt;
+                    
                 </Link>
             </Box>
         </Box>
