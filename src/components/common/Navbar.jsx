@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import {    Drawer,    List,    ListItem,    ListItemText,    Divider,    Box,    IconButton,
-    useMediaQuery,    useTheme,
+import {
+    Drawer, List, ListItem, ListItemText, Divider, Box, IconButton,
+    useMediaQuery, useTheme
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import logoimage from '../../assets/Navbar/delishlogo.png';
@@ -11,12 +12,12 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close'; 
 
 const Navbar = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [mobileOpen, setMobileOpen] = useState(false);
-
     const drawerWidth = 320;
 
     const handleDrawerToggle = () => {
@@ -29,7 +30,7 @@ const Navbar = () => {
         { text: 'Kids Zone', path: '/Kids-Zone', icon: <ChildCareIcon /> },
         { text: 'Play Zone', path: '/Play-Zone', icon: <SportsEsportsIcon /> },
         { text: 'Careers', path: '/Careers', icon: <WorkIcon /> },
-        { text: 'Contact', path: '/Contact', icon: <ContactMailIcon /> },
+        { text: 'Contact', path: '/Contact', icon: <ContactMailIcon /> }
     ];
 
     const drawerContent = (
@@ -39,13 +40,20 @@ const Navbar = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    padding: '40px 0',
+                    padding: '2.5rem 0',
+                    maxWidth: '100%',
+                
                 }}
             >
-                <img
+                <Box component="img"
                     src={logoimage}
                     alt="Delish-Licks Logo"
-                    style={{ width: '200px', height: 'auto' }}
+                    sx={{
+                        width: '60%',
+                        maxWidth: '200px',
+                        height: 'auto',
+                        objectFit: 'contain',
+                    }}
                 />
             </Box>
             <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)' }} />
@@ -54,21 +62,21 @@ const Navbar = () => {
                     <Link to={item.path} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <ListItem
                             button
-                            onClick={() => setMobileOpen(false)} // Close drawer on item click
+                            onClick={() => setMobileOpen(false)}
                             sx={{
                                 justifyContent: 'start',
-                                padding: '10px 60px',
+                                padding: '0.75rem 3.5rem',
                                 '&:hover': {
                                     backgroundColor: '#424242',
                                 },
                             }}
                         >
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                                 {item.icon}
                                 <ListItemText
                                     primary={item.text}
                                     primaryTypographyProps={{
-                                        fontSize: '18px',
+                                        fontSize: '1.1rem',
                                         textAlign: 'center',
                                     }}
                                 />
@@ -91,8 +99,8 @@ const Navbar = () => {
                         onClick={handleDrawerToggle}
                         sx={{
                             position: 'fixed',
-                            top: 10,
-                            left: 10,
+                            top: '0.5rem',
+                            left: '1rem',
                             zIndex: 1200,
                             backgroundColor: '#2f2f2f',
                             color: 'white',
@@ -106,9 +114,7 @@ const Navbar = () => {
                         variant="temporary"
                         open={mobileOpen}
                         onClose={handleDrawerToggle}
-                        ModalProps={{
-                            keepMounted: true,
-                        }}
+                        ModalProps={{ keepMounted: true }}
                         sx={{
                             '& .MuiDrawer-paper': {
                                 width: drawerWidth,
@@ -117,6 +123,20 @@ const Navbar = () => {
                             },
                         }}
                     >
+                      
+                        <IconButton
+                            onClick={handleDrawerToggle}
+                            sx={{
+                                position: 'absolute',
+                                top: '1rem',
+                                right: '1rem',
+                                zIndex: 1300,
+                                color: 'white',
+                            }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+
                         {drawerContent}
                     </Drawer>
                 </>
