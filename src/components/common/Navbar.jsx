@@ -12,7 +12,8 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close'; 
+import CloseIcon from '@mui/icons-material/Close';
+import NavVideo from "../../assets/NavVideo/videoplayback.mp4"
 
 const Navbar = () => {
     const theme = useTheme();
@@ -42,7 +43,6 @@ const Navbar = () => {
                     alignItems: 'center',
                     padding: '2.5rem 0',
                     maxWidth: '100%',
-                
                 }}
             >
                 <Box component="img"
@@ -56,10 +56,10 @@ const Navbar = () => {
                     }}
                 />
             </Box>
-            <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)' }} />
+            <Divider sx={{ borderColor: 'inherit' }} />
             <List>
                 {menuItems.map((item, index) => (
-                    <Link to={item.path} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Link to={item.path} key={index} style={{ textDecoration: 'none', color: 'White' }}>
                         <ListItem
                             button
                             onClick={() => setMobileOpen(false)}
@@ -86,6 +86,32 @@ const Navbar = () => {
                 ))}
             </List>
         </>
+    );
+
+    const drawerContentWithVideo = (
+        <Box sx={{ position: 'relative', height: '100%', width: '100%' }}>
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    zIndex: -1,
+                    top: 0,
+                    left: 0,
+                }}
+            >
+                <source src={NavVideo} type="video/mp4" />
+            </video>
+
+            <Box sx={{ position: 'relative', zIndex: 1 }}>
+                {drawerContent}
+            </Box>
+        </Box>
     );
 
     return (
@@ -118,12 +144,11 @@ const Navbar = () => {
                         sx={{
                             '& .MuiDrawer-paper': {
                                 width: drawerWidth,
-                                backgroundColor: '#3D3B35',
+                                backgroundColor: 'transparent',
                                 color: 'white',
                             },
                         }}
                     >
-                      
                         <IconButton
                             onClick={handleDrawerToggle}
                             sx={{
@@ -137,7 +162,7 @@ const Navbar = () => {
                             <CloseIcon />
                         </IconButton>
 
-                        {drawerContent}
+                        {drawerContentWithVideo}
                     </Drawer>
                 </>
             ) : (
@@ -148,7 +173,7 @@ const Navbar = () => {
                         '& .MuiDrawer-paper': {
                             width: drawerWidth,
                             boxSizing: 'border-box',
-                            backgroundColor: '#3D3B35',
+                            backgroundColor: 'transparent',
                             color: 'white',
                             position: 'fixed',
                             height: '100vh',
@@ -160,7 +185,7 @@ const Navbar = () => {
                     variant="permanent"
                     anchor="left"
                 >
-                    {drawerContent}
+                    {drawerContentWithVideo}
                 </Drawer>
             )}
         </>
