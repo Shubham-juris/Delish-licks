@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import heroimage from '../../assets/Hero/herobg.png';
+import heroimage from '../../assets/Hero/Bg.jpg';
 
 const Hero = () => {
     return (
@@ -31,11 +31,12 @@ const Hero = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                    backgroundColor: 'rgba(0, 0, 0, .5)',
                     zIndex: 1,
                 },
             }}
         >
+            
             <Box sx={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '90%', width: '100%' }}>
                 <Typography
                     variant="h2"

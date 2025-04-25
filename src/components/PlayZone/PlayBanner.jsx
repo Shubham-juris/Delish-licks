@@ -10,18 +10,19 @@ const PlayBanner = () => {
                 p: { xs: 3, md: 5 },
                 backgroundColor: '#F7F7F7',
                 textAlign: 'center',
+                
             }}
         >
-            {/* Header */}
+            
             <Typography 
                 variant="h6" 
                 align="center" 
-                sx={{ textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: 1, mb: 4 }}
+                sx={{ textTransform: 'uppercase', fontWeight: 'bold', letterSpacing: 1, mb: 4,  fontFamily: "'Caveat Brush', sans-serif", }}
             >
                 Welcome to the Delish-Licks Play Zone!
             </Typography>
 
-            {/* Content Section */}
+          
             <Box 
                 sx={{
                     display: 'flex',

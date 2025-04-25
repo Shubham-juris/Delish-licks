@@ -13,7 +13,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import NavVideo from "../../assets/NavVideo/videoplayback.mp4"
+import NavVideo from "../../assets/NavVideo/videoplayback.mp4";
 
 const Navbar = () => {
     const theme = useTheme();
@@ -53,6 +53,7 @@ const Navbar = () => {
                         maxWidth: '200px',
                         height: 'auto',
                         objectFit: 'contain',
+                        borderRadius: '50%' 
                     }}
                 />
             </Box>
@@ -89,7 +90,7 @@ const Navbar = () => {
     );
 
     const drawerContentWithVideo = (
-        <Box sx={{ position: 'relative', height: '100%', width: '100%' }}>
+        <Box sx={{ position: 'relative', height: '100vh', width: '100%' }}>
             <video
                 autoPlay
                 loop
@@ -107,6 +108,18 @@ const Navbar = () => {
             >
                 <source src={NavVideo} type="video/mp4" />
             </video>
+
+            <Box
+        sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, .4)', 
+            zIndex: -1,
+        }}
+    />
 
             <Box sx={{ position: 'relative', zIndex: 1 }}>
                 {drawerContent}
@@ -146,6 +159,8 @@ const Navbar = () => {
                                 width: drawerWidth,
                                 backgroundColor: 'transparent',
                                 color: 'white',
+                                height: '100vh',
+                                overflow: 'hidden',
                             },
                         }}
                     >
@@ -180,6 +195,7 @@ const Navbar = () => {
                             top: 0,
                             left: 0,
                             zIndex: 1000,
+                            overflow: 'hidden',
                         },
                     }}
                     variant="permanent"

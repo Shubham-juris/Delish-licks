@@ -25,7 +25,7 @@ const Footer = () => {
                     color: '#666',
                 }}
             >
-                COPYRIGHT © 2024 DELISH-LICKS.COM - ALL RIGHTS RESERVED
+                COPYRIGHT © 2025 DELISH-LICKS.COM - ALL RIGHTS RESERVED
             </Typography>
         </Box>
     );
