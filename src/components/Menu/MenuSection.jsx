@@ -8,7 +8,7 @@ const MenuSection = ({ title, subtitle, items, isMobile, showDisclaimer = false 
   const secondHalf = items.slice(half);
 
   return (
-    <Box sx={{ bgcolor: "#0a192f", py: 4 }}>
+    <Box sx={{ bgcolor: "#111827", py: 4 }}>
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 4, md: 6 } }}>
         <Typography
           variant="h5"  
