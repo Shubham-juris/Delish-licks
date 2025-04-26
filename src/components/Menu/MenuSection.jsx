@@ -13,7 +13,7 @@ const MenuSection = ({ title, subtitle, items, isMobile, showDisclaimer = false 
         <Typography
           variant="h5"  
           fontWeight="bold"
-          fontFamily="'Pacifico', cursive"
+          fontFamily="'Pacifico', cursive" 
           sx={{ mb: 1, color: "white" }}
         >
           {title}
