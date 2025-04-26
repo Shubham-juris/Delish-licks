@@ -53,7 +53,7 @@ const Navbar = () => {
                         maxWidth: '200px',
                         height: 'auto',
                         objectFit: 'contain',
-                        borderRadius: '50%' 
+                        borderRadius: '50%'
                     }}
                 />
             </Box>
@@ -110,16 +110,16 @@ const Navbar = () => {
             </video>
 
             <Box
-        sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, .4)', 
-            zIndex: -1,
-        }}
-    />
+                sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, .4)',
+                    zIndex: -1,
+                }}
+            />
 
             <Box sx={{ position: 'relative', zIndex: 1 }}>
                 {drawerContent}

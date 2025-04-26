@@ -9,7 +9,7 @@ const About = () => {
         display: 'flex',
         justifyContent: 'center',
         padding: { xs: '0.5rem 1rem', md: '1rem 1rem' },
-        marginTop: { xs: '10px', md: '2px' },
+        marginTop: { xs: '10px', md: '100px' },
         boxSizing: 'border-box',
         overflowX: 'hidden',
         width: '100%',

@@ -4,151 +4,106 @@ import vrImage from '../../assets/PlayZone/playimage1.png';
 import dartsImage from '../../assets/PlayZone/playimage2.png';
 import simulationImage from '../../assets/PlayZone/playimage3.png';
 
+const sectionTitleStyle = {
+  fontWeight: 'bold',
+  fontSize: '1.1rem',
+  textAlign: 'center',
+  mb: 1,
+  fontFamily: "'Caveat Brush', sans-serif",
+};
+
+const sectionTextStyle = {
+  fontSize: '0.95rem',
+  color: '#555',
+  textAlign: 'center',
+};
+
+const partyOptions = [
+  {
+    title: 'VR Zone',
+    src: vrImage,
+    description: `Immerse yourself in the future of gaming with our cutting-edge virtual reality zone. Step into otherworldly realms, embark on thrilling adventures, and experience gaming like never before.`,
+  },
+  {
+    title: 'Darts',
+    src: dartsImage,
+    description: `Test your accuracy and aim with a game of darts. Perfect for groups or solo players, our dartboards offer a fun and interactive way to challenge yourself and others.`,
+  },
+  {
+    title: 'Simulation Games',
+    src: simulationImage,
+    description: `Get behind the wheel of your favorite car or pilot a spaceship through the cosmos in our simulation games area. With a variety of games to choose from, you can explore new worlds and embark on exciting adventures without ever leaving your seat.`,
+  },
+];
+
 const PlayfulOfferings = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: { xs: '20px', md: '40px' },
-        marginLeft: {xl:'2500px',md: "300px"},
-        maxWidth: '1200px',
-          fontFamily: "'Caveat Brush', sans-serif",
-       
+        ml: { xs: 0, md: '320px' },
+        p: { xs: 3, md: 5 },
+        backgroundColor: '#F7F7F7',
+        textAlign: 'center',
       }}
     >
+   
       <Typography
-        variant="h5"
+        variant="h6"
+        align="center"
         sx={{
-          textAlign: 'center',
-          fontWeight: 'bold',
           textTransform: 'uppercase',
+          fontWeight: 'bold',
+          letterSpacing: 1,
           mb: 4,
-          fontSize: { xs: '1.5rem', md: '2rem' },
         }}
       >
         Explore Our Playful Offerings
       </Typography>
 
+
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
+          flexDirection: { xs: 'column', lg: 'row' },
+          alignItems: 'flex-start',
           justifyContent: 'space-between',
+          flexWrap: 'wrap',
           gap: 3,
-          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
         }}
       >
-        {/* VR Zone */}
+        
         <Box
           sx={{
-            width: { xs: '100%', md: '30%' },
-            textAlign: 'center',
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            mb: { xs: 4, md: 0 },
+            flexWrap: 'wrap',
+            gap: 3,
+            flex: 2,
+            justifyContent: 'center',
           }}
         >
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 'bold',
-              fontFamily: "'Caveat Brush', sans-serif",
-              fontSize: { xs: '1.1rem', md: '1.3rem' },
-              mb: 2,
-            }}
-          >
-            VR Zone
-          </Typography>
-          <img
-            src={vrImage}
-            alt="VR Zone"
-            style={{
-              width: '100%',
-              height: 'auto',
-              borderRadius: '8px',
-              objectFit: 'cover',
-            }}
-          />
-          <Typography variant="body1" sx={{ mt: 2 }}>
-            Immerse yourself in the future of gaming with our cutting-edge virtual reality zone. Step into otherworldly realms, embark on thrilling adventures, and experience gaming like never before.
-          </Typography>
-        </Box>
-
-        {/* Darts */}
-        <Box
-          sx={{
-            width: { xs: '100%', md: '30%' },
-            textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            mb: { xs: 4, md: 0 },
-          }}
-        >
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 'bold',
-              fontFamily: "'Caveat Brush', sans-serif",
-              fontSize: { xs: '1.1rem', md: '1.3rem' },
-              mb: 2,
-            }}
-          >
-            Darts
-          </Typography>
-          <img
-            src={dartsImage}
-            alt="Darts"
-            style={{
-              width: '100%',
-              height: 'auto',
-              borderRadius: '8px',
-              objectFit: 'cover',
-            }}
-          />
-          <Typography variant="body1" sx={{ mt: 2 }}>
-            Test your accuracy and aim with a game of darts. Perfect for groups or solo players, our dartboards offer a fun and interactive way to challenge yourself and others.
-          </Typography>
-        </Box>
-
-        {/* Simulation Games */}
-        <Box
-          sx={{
-            width: { xs: '100%', md: '30%' },
-            textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 'bold',
-              fontFamily: "'Caveat Brush', sans-serif",
-              fontSize: { xs: '1.1rem', md: '1.3rem' },
-              mb: 2,
-            }}
-          >
-            Simulation Games
-          </Typography>
-          <img
-            src={simulationImage}
-            alt="Simulation Games"
-            style={{
-              width: '100%',
-              height: 'auto',
-              borderRadius: '8px',
-              objectFit: 'cover',
-            }}
-          />
-          <Typography variant="body1" sx={{ mt: 2 }}>
-            Get behind the wheel of your favorite car or pilot a spaceship through the cosmos in our simulation games area. With a variety of games to choose from, you can explore new worlds and embark on exciting adventures without ever leaving your seat.
-          </Typography>
+          {partyOptions.map((option, index) => (
+            <Box
+              key={index}
+              sx={{
+                width: { xs: '100%', sm: '45%', md: '30%' },
+                textAlign: 'center',
+              }}
+            >
+              <Typography variant="h6" sx={sectionTitleStyle}>
+                {option.title}
+              </Typography>
+              <Box
+                component="img"
+                src={option.src}
+                alt={option.title}
+                sx={{ width: '100%', height: 'auto', borderRadius: 2, mb: 2 }}
+              />
+              
+              <Typography sx={sectionTextStyle}>{option.description}</Typography>
+            </Box>
+          ))}
         </Box>
       </Box>
     </Box>

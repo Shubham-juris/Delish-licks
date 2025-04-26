@@ -16,7 +16,7 @@ const KidsZone = () => {
                 backgroundColor: '#F7F7F7',
             }}
         >
-            {/* Header */}
+         
             <Typography 
                 variant="h5" 
                 align="center" 
@@ -25,7 +25,7 @@ const KidsZone = () => {
                 Welcome to Delish-Licks.com
             </Typography>
 
-            {/* Kids Play Zone Section */}
+        
             <Box 
                 sx={{
                     display: 'flex',
@@ -51,7 +51,7 @@ const KidsZone = () => {
                 </Box>
             </Box>
 
-            {/* Board Games Section */}
+            
             <Box 
                 sx={{
                     display: 'flex',
@@ -77,7 +77,7 @@ const KidsZone = () => {
                 </Box>
             </Box>
 
-            {/* Art Zone Section */}
+            
             <Box 
                 sx={{
                     display: 'flex',
@@ -102,7 +102,7 @@ const KidsZone = () => {
                 </Box>
             </Box>
 
-            {/* Kids birthday party */}
+            
             <Box 
                 sx={{
                     display: 'flex',

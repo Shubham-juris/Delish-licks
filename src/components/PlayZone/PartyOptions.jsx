@@ -58,7 +58,7 @@ const PartyOptions = () => {
         textAlign: 'center',
       }}
     >
-      {/* Header */}
+   
       <Typography
         variant="h6"
         align="center"
@@ -72,7 +72,7 @@ const PartyOptions = () => {
         At Delish-Licks, we offer a variety of party options.
       </Typography>
 
-      {/* Content Section */}
+      
       <Box
         sx={{
           display: 'flex',
@@ -85,7 +85,7 @@ const PartyOptions = () => {
           margin: '0 auto',
         }}
       >
-        {/* Party Options */}
+        
         <Box
           sx={{
             display: 'flex',

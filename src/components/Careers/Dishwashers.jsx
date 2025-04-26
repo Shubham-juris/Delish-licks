@@ -5,24 +5,42 @@ const Dishwashers = () => {
     return (
         <Box
             sx={{
-                ml: { xs: 0, md: "320px" },
+                ml: { xs: 0, md: "200px" },
                 p: { xs: 3, md: 5 },
                 backgroundColor: "#F7F7F7",
-                minHeight: "100vh",
+                minHeight: "20vh",
             }}
         >
-            {/* Header */}
+
             <Typography
                 variant="h6"
-                sx={{ textAlign: "center", fontWeight: "bold", letterSpacing: "1px", mb: 4 }}
+                sx={{
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    letterSpacing: "1px",
+                    mb: 4,
+                }}
             >
                 WE'RE HIRING!
             </Typography>
 
-            {/* Main Container with Flexbox */}
-            <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 4 }}>
-                {/* Left Side - Job Details */}
-                <Box sx={{ flex: 1 }}>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    justifyContent: "center",
+                    alignItems: { xs: "center", md: "flex-start" },
+                    flexWrap: "wrap",
+                    gap: 1,
+                }}
+            >
+
+                <Box
+                    sx={{
+                        width: { xs: "100%", md: "42%" },
+                        maxWidth: "600px",
+                    }}
+                >
                     <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
                         Join Our Team
                     </Typography>
@@ -74,11 +92,11 @@ const Dishwashers = () => {
                         <strong>Only apply to this job if:</strong> <br />
                         • You are a Canadian citizen, a permanent or temporary resident of Canada. <br />
                         • You have a valid Canadian work permit. <br />
-                        <Typography sx={{ mt: 1 }}>
-                            If you are not authorized to work in Canada, <br />
-                            <span style={{ textDecoration: "underline" }}>do not apply.</span> <br />
-                            The employer <span style={{ fontWeight: "bold" }}>will not respond</span> to your application.
-                        </Typography>
+                    </Typography>
+                    <Typography sx={{ mt: 1 }}>
+                        If you are not authorized to work in Canada, <br />
+                        <span style={{ textDecoration: "underline" }}>do not apply.</span> <br />
+                        The employer <strong>will not respond</strong> to your application.
                     </Typography>
 
                     <Typography variant="h6" sx={{ fontWeight: "bold", mt: 3 }}>
@@ -86,60 +104,90 @@ const Dishwashers = () => {
                     </Typography>
                     <Typography sx={{ mt: 1 }}>
                         <strong>By email:</strong>{" "}
-                        <Link href="mailto:delishlicks664@gmail.com" sx={{  }}>
+                        <Link href="mailto:delishlicks664@gmail.com">
                             delishlicks664@gmail.com
                         </Link>
                     </Typography>
                 </Box>
 
-                {/* Right Side - Application Form */}
+
                 <Box
                     sx={{
-                        width: { xs: "100%", md: "45%" },
-                        p: 4,
-
+                        width: { xs: "100%", md: "38%" },
+                        maxWidth: "500px",
 
                     }}
                 >
-                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
-                        Apply Now
-                    </Typography>
+                    <Box>
+                        <Typography
+                            variant="h6"
+                            sx={{ fontWeight: "bold", mb: 3, textAlign: "center" }}
+                        >
+                            Apply Now
+                        </Typography>
 
-                    {/* Form Fields */}
-                    <TextField fullWidth label="Name" variant="outlined" sx={{ mb: 2 }} />
-                    <TextField fullWidth label="Phone" variant="outlined" sx={{ mb: 2 }} />
-                    <TextField fullWidth label="Email*" variant="outlined" sx={{ mb: 2 }} />
-                    <TextField fullWidth label="Message" variant="outlined" multiline rows={6} sx={{ mb: 2 }} />
+                        <TextField
+                            label="Name"
+                            variant="outlined"
+                            sx={{ mb: 2, width: "100%" }}
+                        />
+                        <TextField
+                            label="Phone"
+                            variant="outlined"
+                            sx={{ mb: 2, width: "100%" }}
+                        />
+                        <TextField
+                            label="Email*"
+                            variant="outlined"
+                            sx={{ mb: 2, width: "100%" }}
+                        />
+                        <TextField
+                            label="Message"
+                            variant="outlined"
+                            multiline
+                            rows={6}
+                            sx={{ mb: 2, width: "100%" }}
+                        />
 
-                    {/* File Upload (Resume) */}
-                    <Typography sx={{ mb: 2, display: "flex", alignItems: "center", cursor: "pointer" }}>
-                        📎 Attach Resume
-                    </Typography>
+                        <Typography
+                            sx={{
+                                mb: 2,
+                                display: "flex",
+                                alignItems: "center",
+                                cursor: "pointer",
+                                fontSize: "14px",
+                                color: "gray",
+                            }}
+                        >
+                            📎 Attach Resume
+                        </Typography>
 
-                    {/* Submit Button */}
-                    <Button
-                        fullWidth
-                        variant="outlined"
-                        sx={{
-                            p: 1.5,
-                            fontWeight: "bold",
-                            color: "black",
-                            backgroundColor: "white",
-                            border: "none", 
-                            "&:hover": {
-                                color: "white", 
+                        <Button
+                            fullWidth
+                            variant="contained"
+                            sx={{
+                                p: 1.5,
+                                fontWeight: "bold",
                                 backgroundColor: "black",
-                            },
-                        }}
-                    >
-                        SUBMIT APPLICATION
-                    </Button>
+                                "&:hover": {
+                                    backgroundColor: "gray",
+                                },
+                            }}
+                        >
+                            SUBMIT APPLICATION
+                        </Button>
 
-
-                    {/* Disclaimer Text */}
-                    <Typography sx={{ fontSize: "12px", textAlign: "center", mt: 2, color: "gray" }}>
-                        This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-                    </Typography>
+                        <Typography
+                            sx={{
+                                fontSize: "10px",
+                                textAlign: "center",
+                                mt: 2,
+                                color: "gray",
+                            }}
+                        >
+                            This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
         </Box>

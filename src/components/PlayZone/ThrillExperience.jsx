@@ -5,7 +5,7 @@ const ThrillExperience = () => {
     return (
         <Box
             sx={{
-                ml: { xs: 0, md: '320px' },
+                ml: { xs: 0, md: '150px' },
                 p: { xs: 4, md: 6 },
                 backgroundColor: '#3D3B35',
                 color: '#F7F7F7',
@@ -16,7 +16,7 @@ const ThrillExperience = () => {
                 justifyContent: 'center',
             }}
         >
-            {/* Heading */}
+          
             <Typography
                 variant="h3"
                 sx={{                    
@@ -27,7 +27,7 @@ const ThrillExperience = () => {
                 Experience Thrills Beyond the Plate
             </Typography>
 
-            {/* Content Section */}
+   
             <Box
                 sx={{
                     display: 'flex',
@@ -36,7 +36,7 @@ const ThrillExperience = () => {
                     textAlign: 'left',
                 }}
             >
-                {/* Vertical Line */}
+               
                 <Box
                     sx={{
                         py: 3,
@@ -47,7 +47,7 @@ const ThrillExperience = () => {
                     }}
                 />
 
-                {/* Text Content */}
+                
                 <Typography variant="body1" sx={{ py: 3, lineHeight: 1.9 }}>
                     At Delish-Licks, we believe that dining out should be an adventure, and our Adult Play Zone takes that 
                     philosophy to the next level. Prepare to be captivated by a variety of thrilling activities designed to spark 

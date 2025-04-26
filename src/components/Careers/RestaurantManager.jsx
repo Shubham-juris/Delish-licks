@@ -5,10 +5,10 @@ const RestaurantManager = () => {
     return (
         <Box
             sx={{
-                ml: { xs: 0, md: "320px" },
+                ml: { xs: 0, md: "200px" },
                 p: { xs: 3, md: 5 },
                 backgroundColor: "#F7F7F7",
-                minHeight: "100vh",
+                minHeight: "20vh",
             }}
         >
             <Typography
@@ -18,8 +18,18 @@ const RestaurantManager = () => {
                 WE'RE HIRING!
             </Typography>
 
-            <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 4 }}>
-                <Box sx={{ flex: 1 }}>
+            <Box sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                justifyContent: "center",
+                alignItems: { xs: "center", md: "flex-start" },
+                flexWrap: "wrap",
+                gap: 1,
+            }}>
+                <Box sx={{
+                    width: { xs: "100%", md: "42%" },
+                    maxWidth: "600px",
+                }}>
                     <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
                         Join Our Team
                     </Typography>
@@ -97,34 +107,83 @@ const RestaurantManager = () => {
                     </Typography>
                 </Box>
 
-                <Box sx={{ width: { xs: "100%", md: "45%" }, p: 4 }}>
-                    <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
-                        Apply Now
-                    </Typography>
-                    <TextField fullWidth label="Name" variant="outlined" sx={{ mb: 2 }} />
-                    <TextField fullWidth label="Phone" variant="outlined" sx={{ mb: 2 }} />
-                    <TextField fullWidth label="Email*" variant="outlined" sx={{ mb: 2 }} />
-                    <TextField fullWidth label="Message" variant="outlined" multiline rows={6} sx={{ mb: 2 }} />
-                    <Typography sx={{ mb: 2, display: "flex", alignItems: "center", cursor: "pointer" }}>
-                        📎 Attach Resume
-                    </Typography>
-                    <Button
-                        fullWidth
-                        variant="outlined"
-                        sx={{
-                            p: 1.5,
-                            fontWeight: "bold",
-                            color: "black",
-                            backgroundColor: "white",
-                            border: "none",
-                            "&:hover": { color: "white", backgroundColor: "black" },
-                        }}
-                    >
-                        SUBMIT APPLICATION
-                    </Button>
-                    <Typography sx={{ fontSize: "12px", textAlign: "center", mt: 2, color: "gray" }}>
-                        This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-                    </Typography>
+                <Box
+                    sx={{
+                        width: { xs: "100%", md: "38%" },
+                        maxWidth: "500px",
+
+                    }}
+                >
+                    <Box>
+                        <Typography
+                            variant="h6"
+                            sx={{ fontWeight: "bold", mb: 3, textAlign: "center" }}
+                        >
+                            Apply Now
+                        </Typography>
+
+                        <TextField
+                            label="Name"
+                            variant="outlined"
+                            sx={{ mb: 2, width: "100%" }}
+                        />
+                        <TextField
+                            label="Phone"
+                            variant="outlined"
+                            sx={{ mb: 2, width: "100%" }}
+                        />
+                        <TextField
+                            label="Email*"
+                            variant="outlined"
+                            sx={{ mb: 2, width: "100%" }}
+                        />
+                        <TextField
+                            label="Message"
+                            variant="outlined"
+                            multiline
+                            rows={6}
+                            sx={{ mb: 2, width: "100%" }}
+                        />
+
+                        <Typography
+                            sx={{
+                                mb: 2,
+                                display: "flex",
+                                alignItems: "center",
+                                cursor: "pointer",
+                                fontSize: "14px",
+                                color: "gray",
+                            }}
+                        >
+                            📎 Attach Resume
+                        </Typography>
+
+                        <Button
+                            fullWidth
+                            variant="contained"
+                            sx={{
+                                p: 1.5,
+                                fontWeight: "bold",
+                                backgroundColor: "black",
+                                "&:hover": {
+                                    backgroundColor: "gray",
+                                },
+                            }}
+                        >
+                            SUBMIT APPLICATION
+                        </Button>
+
+                        <Typography
+                            sx={{
+                                fontSize: "10px",
+                                textAlign: "center",
+                                mt: 2,
+                                color: "gray",
+                            }}
+                        >
+                            This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
         </Box>
