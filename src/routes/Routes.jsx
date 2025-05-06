@@ -11,7 +11,7 @@ const AppRoutes = () => {
     <Router>
       <Routes>
         {/* When user visits "/", redirect them to "/hero" */}
-        <Route path="/" element={<Navigate to="/Home" replace />} />
+{/*         <Route path="/" element={<Navigate to="/Home" replace />} /> */}
         <Route path="/Home" element={<Home />} />
         <Route path="/Menu" element={<Menu />} />  
         <Route path="/Kids-Zone" element={<KidsZone />} />
